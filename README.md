@@ -126,17 +126,6 @@ To run the tests:
 npm test
 ```
 
-## 📦 Peer Dependencies
-
-Ensure you have `react` and `react-dom` installed in your project:
-
-```json
-"peerDependencies": {
-  "react": "^17.0.0",
-  "react-dom": "^17.0.0"
-}
-```
-
 ## 🤝 Contributing
 
 Contributions are welcome! If you have ideas or suggestions, feel free to open an issue or create a pull request.
