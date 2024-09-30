@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Pill - Microsite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <header class="bg-blue-500 text-white p-6 text-center">
+        <h1 class="text-4xl font-bold">React Pill</h1>
+        <p class="text-lg mt-2">A customizable pill-style component for React.</p>
+    </header>
+    <main class="max-w-4xl mx-auto p-8">
+        <section id="features" class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">✨ Features</h2>
+            <ul class="list-disc list-inside space-y-2">
+                <li>Customizable pills with labels, icons, and close buttons.</li>
+                <li>Rounded or default rectangular styles.</li>
+                <li>Easy-to-use API for click and close actions.</li>
+            </ul>
+        </section>
+        
+        <section id="installation" class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">📦 Installation</h2>
+            <div class="bg-gray-800 text-white p-4 rounded-md">
+                <pre><code>npm install react-pill</code></pre>
+            </div>
+            <p class="mt-4">Or with Yarn:</p>
+            <div class="bg-gray-800 text-white p-4 rounded-md">
+                <pre><code>yarn add react-pill</code></pre>
+            </div>
+        </section>
+        
+        <section id="usage" class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">📖 Usage</h2>
+            <div class="bg-gray-800 text-white p-4 rounded-md overflow-x-auto">
+                <pre><code>
+import React from "react";
+import Pill from "react-pill";
+
+const App = () => {
+    const data = [
+        { label: "Tab 1", bgcolor: "#ffcccb" },
+        { label: "Tab 2", bgcolor: "#b0e57c" },
+        { label: "Tab 3", bgcolor: "#87ceeb", icon: "" },
+    ];
+
+    const handleSelect = (event, index) => {
+        console.log(`Selected Pill: ${index}`);
+    };
+
+    const handleClose = (index) => {
+        console.log(`Closed Pill: ${index}`);
+    };
+
+    return (
+        <div>
+            <Pill
+                data={data}
+                onSelect={handleSelect}
+                onClose={handleClose}
+                rounded={true}
+                containerClassName="pill-container"
+                pillClassName="custom-pill"
+            />
+        </div>
+    );
+};
+
+export default App;
+                </code></pre>
+            </div>
+        </section>
+
+        <section id="styling" class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">🎨 Styling</h2>
+            <p class="mb-4">You can style the pills using your own CSS:</p>
+            <div class="bg-gray-800 text-white p-4 rounded-md overflow-x-auto">
+                <pre><code>
+.defaultPill {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.rounded {
+    border-radius: 20px;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+                </code></pre>
+            </div>
+        </section>
+    </main>
+    <footer class="text-center mt-8 p-4 bg-gray-200">
+        <p>MIT License. Feel free to use, modify, and share it!</p>
+    </footer>
+</body>
+</html>
