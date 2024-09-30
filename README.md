@@ -7,6 +7,11 @@
 - Customizable pills with support for labels, icons, and close buttons.
 - Rounded or default rectangular styles.
 - Easy-to-use API for on-click and close actions.
+- Type safe
+
+## Demo
+
+![Demo](https://youtu.be/Mh0-49eIIMI)
 
 ## 🚀 Getting Started
 
