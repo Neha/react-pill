@@ -10,15 +10,20 @@
 <body class="bg-gray-100 text-gray-800">
     <header class="bg-blue-500 text-white p-6 text-center">
         <h1 class="text-4xl font-bold">React Pill 💊</h1>
-        <p class="text-lg mt-2">A customizable pill-style component for React.</p>
+        <p class="text-lg mt-2">A customizable React pill component for React.</p>
     </header>
     <main class="max-w-4xl mx-auto p-8">
         <section id="features" class="mb-12">
+            <img src="pill.png" alt="react-pill npm package"/>
+            <br />
             <h2 class="text-2xl font-semibold mb-4">✨ Features</h2>
             <ul class="list-disc list-inside space-y-2">
+                <li>Dynamic pills via simple data structure</li>
+                <li>Customize background-color and look-n-feel</li>
                 <li>Customizable pills with labels, icons, and close buttons.</li>
                 <li>Rounded or default rectangular styles.</li>
-                <li>Easy-to-use API for click and close actions.</li>
+                <li>Easy-to-use</li>
+                <li>Type safe</li>
             </ul>
         </section>
         
@@ -37,6 +42,7 @@
             <h2 class="text-2xl font-semibold mb-4">📖 Usage</h2>
             <div class="bg-gray-800 text-white p-4 rounded-md overflow-x-auto">
                 <pre><code>
+                    
 import React from "react";
 import Pill from "react-pill";
 
@@ -54,18 +60,17 @@ const App = () => {
     const handleClose = (index) => {
         console.log(`Closed Pill: ${index}`);
     };
-
     return (
-        <div>
-            <Pill
-                data={data}
-                onSelect={handleSelect}
-                onClose={handleClose}
-                rounded={true}
-                containerClassName="pill-container"
-                pillClassName="custom-pill"
-            />
-        </div>
+        <>
+        &lt;Pill
+            data=&#123;data&#125;
+            onSelect=&#123;handleSelect&#125;
+            onClose=&#123;handleClose&#125;
+            rounded=&#123;true&#125;
+            containerClassName="pill-container"
+            pillClassName="custom-pill"
+        /&gt;
+        </>
     );
 };
 
@@ -84,11 +89,9 @@ export default App;
     border: none;
     cursor: pointer;
 }
-
 .rounded {
     border-radius: 20px;
 }
-
 .closeButton {
     background: none;
     border: none;
@@ -100,7 +103,7 @@ export default App;
         </section>
     </main>
     <footer class="text-center mt-8 p-4 bg-gray-200">
-        <p>Developed by <a href="https://www.linkedin.com/in/nehha/">Neha Sharma</a> | <a href="https://x.com/hellonehha">Twitter</a></p>
+        <p>Developed by <a href="https://www.linkedin.com/in/nehha/" class="underline text-blue-500">Neha Sharma</a> | <a class="underline text-blue-500" href="https://x.com/hellonehha">Twitter</a></p>
         <p>MIT License. Feel free to use, modify, and share it!</p>
     </footer>
 </body>
