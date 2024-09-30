@@ -1,8 +1,20 @@
-/* eslint-disable react/prop-types */
 import React from "react";
 import "./Pill.css";
 
-const Pill = ({
+interface PillProps {
+  onClose?: (index: number) => void;
+  data: Array<{
+    label: string;
+    icon?: React.ReactNode;
+    bgcolor?: string;
+  }>;
+  rounded?: boolean;
+  onSelect?: (e: React.MouseEvent<HTMLButtonElement>, index: number) => void;
+  pillClassName?: string;
+  containerClassName?: string;
+}
+
+const Pill: React.FC<PillProps> = ({
   onClose,
   data,
   rounded,
@@ -19,12 +31,11 @@ const Pill = ({
           className={`${rounded ? "rounded" : ""} ${
             pillClassName ? "pill" : ""
           } defaultPill`}
-          onClick={(e) => {
+          onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
             e.preventDefault();
             e.stopPropagation();
             onSelect && onSelect(e, index);
           }}
-
         >
           {value.icon && <span className="iconContainer">{value.icon}</span>}
           <span>{value.label}</span>
@@ -32,7 +43,7 @@ const Pill = ({
             <button
               className="closeButton"
               aria-label={`Close ${value.label}`}
-              onClick={(e) => {
+              onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                 e.stopPropagation();
                 onClose && onClose(index);
               }}
@@ -46,6 +57,7 @@ const Pill = ({
       );
     });
   };
+
   return <div className={containerClassName}>{createPill()}</div>;
 };
 
