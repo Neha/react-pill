@@ -11,7 +11,7 @@
 
 ## Demo
 
-![Demo](https://youtu.be/Mh0-49eIIMI)
+[Demo](https://youtu.be/Mh0-49eIIMI)
 
 ## 🚀 Getting Started
 
