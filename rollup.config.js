@@ -15,7 +15,7 @@ export default {
     typescript(),
     postcss({
       inject: true, // Injects CSS into the JS output
-      minimize: true,
+      minimize: true
     }),
   ],
   external: ['react', 'react-dom', 'react/jsx-runtime'],

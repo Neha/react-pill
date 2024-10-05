@@ -11,6 +11,7 @@ interface PillProps {
     onSelect?: (e: React.MouseEvent<HTMLButtonElement>, index: number) => void;
     pillClassName?: string;
     containerClassName?: string;
+    onEdit?: (label: string, index: number) => void;
 }
 declare const Pill: React.FC<PillProps>;
 export default Pill;

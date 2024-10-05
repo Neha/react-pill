@@ -1,11 +1,16 @@
 .defaultPill{
     margin: 2px;
     display: inline-flex;
-    align-items: center;
     padding: 4px 10px;
-    gap: 4px;
     background-color: #eee;
     border: 0;
+}
+
+.pillInnerWrapper{
+    gap: 4px;
+    display: inline-flex;
+    align-items: center;
+    background-color: transparent;
 }
 .closeButton{
     border: 0;
@@ -14,4 +19,7 @@
     padding: 0;
     background-color: transparent;
     color:currentColor;
+}
+button{
+    border: 0
 }
