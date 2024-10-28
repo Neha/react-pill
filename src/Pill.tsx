@@ -7,7 +7,7 @@ export type PillType = {
   bgcolor?: string;
 };
 
-interface PillProps {
+export interface PillProps {
   onClose?: (index: number) => void;
   data: Array<PillType>;
   rounded?: boolean;
@@ -31,7 +31,7 @@ const Pill: React.FC<PillProps> = ({
           style={{ backgroundColor: value.bgcolor ? value.bgcolor : "#eee" }}
           key={index}
           className={`${rounded ? "rounded" : ""} ${
-            pillClassName ? "pill" : ""
+            pillClassName || ""
           } defaultPill`}
           onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
             e.preventDefault();
@@ -42,8 +42,9 @@ const Pill: React.FC<PillProps> = ({
           {value.icon && <span className="iconContainer">{value.icon}</span>}
           <span>{value.label}</span>
           {onClose ? (
-            <button
+            <span
               className="closeButton"
+              role="button"
               aria-label={`Close ${value.label}`}
               onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                 e.stopPropagation();
@@ -51,7 +52,7 @@ const Pill: React.FC<PillProps> = ({
               }}
             >
               X
-            </button>
+            </span>
           ) : (
             ""
           )}

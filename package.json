@@ -19,7 +19,8 @@
     "build": "rollup -c",
     "build:types": "tsc --emitDeclarationOnly",
     "prepare": "npm run build && npm run build:types",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "peerDependencies": {
     "react": "^18.3.1",
@@ -35,7 +36,6 @@
     "@rollup/plugin-typescript": "^12.1.0",
     "@testing-library/jest-dom": "^6.6.1",
     "@testing-library/react": "^16.0.1",
-    "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.13",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
