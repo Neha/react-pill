@@ -1,13 +1,15 @@
 import React from "react";
 import "./Pill.css";
 
+export type PillType = {
+  label: string;
+  icon?: React.ReactNode;
+  bgcolor?: string;
+};
+
 interface PillProps {
   onClose?: (index: number) => void;
-  data: Array<{
-    label: string;
-    icon?: React.ReactNode;
-    bgcolor?: string;
-  }>;
+  data: Array<PillType>;
   rounded?: boolean;
   onSelect?: (e: React.MouseEvent<HTMLButtonElement>, index: number) => void;
   pillClassName?: string;
