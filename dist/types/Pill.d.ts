@@ -9,8 +9,8 @@ interface PillProps {
     }>;
     rounded?: boolean;
     onSelect?: (e: React.MouseEvent<HTMLButtonElement>, index: number) => void;
-    pillClassName?: string;
-    containerClassName?: string;
+    itemClassName?: string;
+    wrapperClassName?: string;
 }
 declare const Pill: React.FC<PillProps>;
 export default Pill;

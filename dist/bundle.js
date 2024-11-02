@@ -31,20 +31,29 @@ var css_248z = ".defaultPill{align-items:center;background-color:#eee;border:0;d
 styleInject(css_248z);
 
 var Pill = function (_a) {
-    var onClose = _a.onClose, data = _a.data, rounded = _a.rounded, onSelect = _a.onSelect, pillClassName = _a.pillClassName, containerClassName = _a.containerClassName;
+    var onClose = _a.onClose, data = _a.data, rounded = _a.rounded, onSelect = _a.onSelect, itemClassName = _a.itemClassName, wrapperClassName = _a.wrapperClassName;
     var createPill = function () {
         return data.map(function (value, index) {
-            return (jsxs("button", { style: { backgroundColor: value.bgcolor ? value.bgcolor : "#eee" }, className: "".concat(rounded ? "rounded" : "", " ").concat(pillClassName ? "pill" : "", " defaultPill"), onClick: function (e) {
+            return (jsxs("button", { style: { backgroundColor: value.bgcolor ? value.bgcolor : "#eee" }, className: "".concat(rounded ? "rounded" : "", " ").concat(itemClassName ? "pill" : "", " defaultPill"), onClick: function (e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    onSelect && onSelect(e, index);
-                }, children: [value.icon && jsx("span", { className: "iconContainer", children: value.icon }), jsx("span", { children: value.label }), onClose ? (jsx("button", { className: "closeButton", "aria-label": "Close ".concat(value.label), onClick: function (e) {
+                    onSelect === null || onSelect === void 0 ? void 0 : onSelect(e, index);
+                }, children: [value.icon && jsx("span", { className: "iconContainer", children: value.icon }), jsx("span", { id: "label-".concat(index), children: value.label }), onClose ? (jsx("span", { className: "closeButton", "aria-label": "Close ".concat(value.label), "aria-labelledby": "label-".concat(index), role: "button", tabIndex: 0, onClick: function (e) {
                             e.stopPropagation();
-                            onClose && onClose(index);
+                            onClose === null || onClose === void 0 ? void 0 : onClose(index);
+                        }, onKeyDown: function (e) {
+                            if (e.key === "Enter" || e.key === " ") {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                onClose === null || onClose === void 0 ? void 0 : onClose(index);
+                            }
+                            else if (e.key === "Escape") {
+                                e.target.blur(); // Remove focus on Escape key press
+                            }
                         }, children: "X" })) : ("")] }, index));
         });
     };
-    return jsx("div", { className: containerClassName, children: createPill() });
+    return jsx("div", { className: wrapperClassName, children: createPill() });
 };
 
 export { Pill };
