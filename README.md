@@ -8,6 +8,7 @@
 - Rounded or default rectangular styles.
 - Easy-to-use API for on-click and close actions.
 - Type safe
+- keyboard accessibile
 
 ## Demo
 
@@ -59,8 +60,8 @@ const App = () => {
         onSelect={handleSelect}
         onClose={handleClose}
         rounded={true}
-        containerClassName="pill-container"
-        pillClassName="custom-pill"
+        wrapperClassName="pill-container"
+        itemClassName="custom-pill"
       />
     </div>
   );
@@ -77,8 +78,8 @@ export default App;
 | `onClose`             | `function`  | Function called when the close button is clicked. Receives the index of the pill. |
 | `onSelect`            | `function`  | Function called when a pill is selected. Receives the event and the index of the pill. |
 | `rounded`             | `boolean`   | If `true`, pills will have rounded corners.                     |
-| `pillClassName`       | `string`    | Custom class for individual pills.                              |
-| `containerClassName`  | `string`    | Custom class for the pill container.                            |
+| `itemClassName`       | `string`    | Custom class for individual pills.                              |
+| `wrapperClassName`  | `string`    | Custom class for the pill container.                            |
 
 ### Example
 

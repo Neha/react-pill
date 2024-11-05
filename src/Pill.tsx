@@ -12,8 +12,8 @@ export interface PillProps {
   data: Array<PillType>;
   rounded?: boolean;
   onSelect?: (e: React.MouseEvent<HTMLButtonElement>, index: number) => void;
-  pillClassName?: string;
-  containerClassName?: string;
+  itemClassName?: string;
+  wrapperClassName?: string;
 }
 
 const Pill: React.FC<PillProps> = ({
@@ -21,8 +21,8 @@ const Pill: React.FC<PillProps> = ({
   data,
   rounded,
   onSelect,
-  pillClassName,
-  containerClassName,
+  itemClassName,
+  wrapperClassName,
 }) => {
   const createPill = () => {
     return data.map((value, index) => {
@@ -31,24 +31,36 @@ const Pill: React.FC<PillProps> = ({
           style={{ backgroundColor: value.bgcolor ? value.bgcolor : "#eee" }}
           key={index}
           className={`${rounded ? "rounded" : ""} ${
-            pillClassName || ""
+            itemClassName || ""
           } defaultPill`}
           onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
             e.preventDefault();
             e.stopPropagation();
-            onSelect && onSelect(e, index);
+            onSelect?.(e, index);
           }}
         >
           {value.icon && <span className="iconContainer">{value.icon}</span>}
-          <span>{value.label}</span>
+          <span id={`label-${index}`}>{value.label}</span>
           {onClose ? (
             <span
               className="closeButton"
               role="button"
               aria-label={`Close ${value.label}`}
+              aria-labelledby={`label-${index}`}
+              role="button"
+              tabIndex={0}
               onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                 e.stopPropagation();
-                onClose && onClose(index);
+                onClose?.(index);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  onClose?.(index);
+                } else if (e.key === "Escape") {
+                  (e.target as HTMLElement).blur(); // Remove focus on Escape key press
+                }
               }}
             >
               X
@@ -61,7 +73,7 @@ const Pill: React.FC<PillProps> = ({
     });
   };
 
-  return <div className={containerClassName}>{createPill()}</div>;
+  return <div className={wrapperClassName}>{createPill()}</div>;
 };
 
 export default Pill;
