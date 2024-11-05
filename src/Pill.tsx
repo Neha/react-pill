@@ -1,13 +1,15 @@
 import React from "react";
 import "./Pill.css";
 
-interface PillProps {
+export type PillType = {
+  label: string;
+  icon?: React.ReactNode;
+  bgcolor?: string;
+};
+
+export interface PillProps {
   onClose?: (index: number) => void;
-  data: Array<{
-    label: string;
-    icon?: React.ReactNode;
-    bgcolor?: string;
-  }>;
+  data: Array<PillType>;
   rounded?: boolean;
   onSelect?: (e: React.MouseEvent<HTMLButtonElement>, index: number) => void;
   itemClassName?: string;
@@ -29,7 +31,7 @@ const Pill: React.FC<PillProps> = ({
           style={{ backgroundColor: value.bgcolor ? value.bgcolor : "#eee" }}
           key={index}
           className={`${rounded ? "rounded" : ""} ${
-            itemClassName ? "pill" : ""
+            itemClassName || ""
           } defaultPill`}
           onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
             e.preventDefault();
@@ -42,9 +44,9 @@ const Pill: React.FC<PillProps> = ({
           {onClose ? (
             <span
               className="closeButton"
+              role="button"
               aria-label={`Close ${value.label}`}
               aria-labelledby={`label-${index}`}
-              role="button"
               tabIndex={0}
               onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                 e.stopPropagation();
