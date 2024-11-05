@@ -9,7 +9,7 @@ const basicPillData: PillType = {
 
 const basicPill: PillProps = {
   data: [basicPillData],
-  pillClassName: "custom-class",
+  itemClassName: "custom-class",
 };
 
 const closeSelectPillData: PillType = {

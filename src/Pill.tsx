@@ -47,7 +47,6 @@ const Pill: React.FC<PillProps> = ({
               role="button"
               aria-label={`Close ${value.label}`}
               aria-labelledby={`label-${index}`}
-              role="button"
               tabIndex={0}
               onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                 e.stopPropagation();
