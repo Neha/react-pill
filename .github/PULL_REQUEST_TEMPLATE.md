@@ -25,6 +25,11 @@ instructions so we can reproduce.
 - [ ] Linting Passed
 - [ ] Others
 
+## Have you self tested the UI and functionality?
+
+- [ ] Yes
+- [ ] No
+
 ## Checklist:
 
 - [ ] My code follows the style guidelines of this project

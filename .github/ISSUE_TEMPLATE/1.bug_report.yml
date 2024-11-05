@@ -20,3 +20,13 @@ body:
     attributes:
       label: Which browser are you using? (if relevant)
       description: "For example: Chrome, Edge, Firefox, etc"
+  - type: markdown
+    attributes:
+      value: |
+        ### Screenshots
+        If applicable, add screenshots to help explain your problem.
+  - type: textarea
+    attributes:
+      label: Screenshots
+      description: You can attach images by clicking this area to highlight it and then dragging files in.
+      placeholder: Drag and drop screenshots here.
